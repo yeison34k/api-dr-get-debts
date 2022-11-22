@@ -1,8 +1,13 @@
 
 service: api-dr-get-debts
 app: app-debts-register
-org: yeisons
+org: yeison
+
 frameworkVersion: '3'
+
+plugins:
+  - serverless-esbuild
+
 provider:
   name: aws
   runtime: nodejs14.x
