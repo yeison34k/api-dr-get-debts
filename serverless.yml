@@ -1,10 +1,8 @@
 
 service: api-dr-get-debts
 app: app-debts-register
-org: yeison
-
+org: yeisons
 frameworkVersion: '3'
-
 provider:
   name: aws
   runtime: nodejs14.x
