@@ -47,7 +47,7 @@ provider:
 
 functions:
   get-token:
-    handler: handler.get
+    handler: handler/handler.get
     events:
       - httpApi: '*'
 #      - websocket: $connect
