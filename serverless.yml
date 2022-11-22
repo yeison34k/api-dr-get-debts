@@ -6,8 +6,8 @@ org: yeison
 frameworkVersion: '3'
 
 plugins:
-  - serverless-esbuild
   - serverless-plugin-typescript
+  - serverless-esbuild
 
 provider:
   name: aws
