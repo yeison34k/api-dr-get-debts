@@ -1,6 +1,6 @@
 
 service: api-dr-get-debts
-app: app-debts-register-tp
+app: app-debts-register
 org: yeison
 
 frameworkVersion: '3'
