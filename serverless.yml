@@ -21,27 +21,9 @@ provider:
           Resource: "arn:aws:dynamodb:${aws:region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 functions:
-  get-token:
+  get-debts:
     handler: handler.get
     events:
       - httpApi:
           path: /debts/{id}
           method: get
-
-
-resources:
-  Resources:
-    DebtsDynamoDbTable:
-      Type: 'AWS::DynamoDB::Table'
-      DeletionPolicy: Retain
-      Properties:
-        AttributeDefinitions:
-          -
-            AttributeName: id
-            AttributeType: S
-        KeySchema:
-          -
-            AttributeName: id
-            KeyType: HASH
-        BillingMode: PAY_PER_REQUEST
-        TableName: ${self:provider.environment.DYNAMODB_TABLE}
