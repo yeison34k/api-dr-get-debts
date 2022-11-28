@@ -5,10 +5,6 @@ org: yeison
 
 frameworkVersion: '3'
 
-plugins:
-  - serverless-plugin-typescript
-  - serverless-esbuild
-
 provider:
   name: aws
   runtime: nodejs16.x
