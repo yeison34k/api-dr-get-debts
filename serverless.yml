@@ -27,3 +27,4 @@ functions:
       - httpApi:
           path: /debts/{id}
           method: get
+  
