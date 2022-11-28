@@ -10,9 +10,36 @@ provider:
   runtime: nodejs16.x
   stage: dev
   region: us-east-1
+  environment:
+    DYNAMODB_TABLE: ${sls:stage}-debts
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+          Resource: "arn:aws:dynamodb:${aws:region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 functions:
   get-token:
     handler: handler/handler.get
     events:
-      - httpApi: '*'
+      - httpApi:
+          path: /debts/{id}
+          method: get
+
+
+resources:
+  Resources:
+    TodosDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}

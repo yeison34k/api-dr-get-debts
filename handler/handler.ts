@@ -3,7 +3,7 @@ import { DynamoDB } from 'aws-sdk'
 const dynamoDb = new DynamoDB.DocumentClient()
 
 
-module.exports.get = (event, context, callback) => {
+module.exports.get = (event, context) => {
   const params: any  = {
     TableName: process.env.DYNAMODB_TABLE,
     Key: {
@@ -18,7 +18,6 @@ module.exports.get = (event, context, callback) => {
       console.error(error);
       return  {
         statusCode: error.statusCode || 501,
-        headers: { 'Content-Type': '' },
         body: 'Couldn\'t fetch the todo item.',
       };
     }
