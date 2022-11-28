@@ -1,5 +1,5 @@
 
-service: api-dr-get-debts-tp
+service: api-dr-get-debts
 app: app-debts-register-tp
 org: yeison
 
