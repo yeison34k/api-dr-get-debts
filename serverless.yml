@@ -22,7 +22,7 @@ provider:
 
 functions:
   get-token:
-    handler: handler/handler.get
+    handler: handler/get
     events:
       - httpApi:
           path: /debts/{id}

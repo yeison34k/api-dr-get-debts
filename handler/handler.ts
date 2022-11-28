@@ -1,10 +1,12 @@
+'use strict';
+
 import { DynamoDB } from 'aws-sdk'
 
 const dynamoDb = new DynamoDB.DocumentClient()
 
 
 module.exports.get = (event, context, callback) => {
-  const params: any  = {
+  const params = {
     TableName: process.env.DYNAMODB_TABLE,
     Key: {
       id: event.pathParameters.id,
@@ -16,10 +18,12 @@ module.exports.get = (event, context, callback) => {
     // handle potential errors
     if (error) {
       console.error(error);
-      return  {
+      callback(null, {
         statusCode: error.statusCode || 501,
+        headers: { 'Content-Type': 'text/plain' },
         body: 'Couldn\'t fetch the todo item.',
-      };
+      });
+      return;
     }
 
     // create a response
@@ -27,7 +31,6 @@ module.exports.get = (event, context, callback) => {
       statusCode: 200,
       body: JSON.stringify(result.Item),
     };
-
-    return response;
+    callback(null, response);
   });
 };
