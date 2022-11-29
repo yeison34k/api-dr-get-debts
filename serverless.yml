@@ -22,11 +22,14 @@ provider:
             - dynamodb:GetItem
           Resource: "arn:aws:dynamodb:${aws:region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
+plugins:
+  - serverless-plugin-typescript
+
 functions:
   get-debts:
     handler: handler.handler
     events:
-      - httpApi:
+      - http:
           path: /debts/{id}
           method: get
   
