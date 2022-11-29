@@ -24,7 +24,7 @@ provider:
 
 functions:
   get-debts:
-    handler: handler.get
+    handler: handler.handler
     events:
       - httpApi:
           path: /debts/{id}

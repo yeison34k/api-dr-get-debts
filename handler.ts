@@ -5,7 +5,7 @@ import { DynamoDB } from 'aws-sdk'
 const dynamoDb = new DynamoDB.DocumentClient()
 
 
-module.exports.get = (event, context, callback) => {
+module.exports.handler = (event, context, callback) => {
   console.log("event.pathParameters", event.pathParameters)
   /*const params = {
     TableName: process.env.DYNAMODB_TABLE,
