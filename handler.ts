@@ -6,7 +6,8 @@ const dynamoDb = new DynamoDB.DocumentClient()
 
 
 module.exports.get = (event, context, callback) => {
-  const params = {
+  console.log("event.pathParameters", event.pathParameters)
+  /*const params = {
     TableName: process.env.DYNAMODB_TABLE,
     Key: {
       id: event.pathParameters.id,
@@ -32,5 +33,5 @@ module.exports.get = (event, context, callback) => {
       body: JSON.stringify(result.Item),
     };
     callback(null, response);
-  });
+  });*/
 };
