@@ -29,13 +29,13 @@ functions:
   get-debts:
     handler: handler.handler
     events:
-      - http:
+      - httpApi:
           path: /debts/{id}
           method: get
   get-debts-tets:
     handler: handler/handler.get
     events:
-      - http:
-          path: /debts/{id}
+      - httpApi:
+          path: /debts-test/{id}
           method: get
   
