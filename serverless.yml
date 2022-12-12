@@ -32,10 +32,4 @@ functions:
       - http:
           path: /debts/{id}
           method: get
-  get-debts-tets:
-    handler: handler/handler.get
-    events:
-      - http:
-          path: /debts-test/{id}
-          method: get
   
