@@ -27,7 +27,7 @@ plugins:
 
 functions:
   get-debts:
-    handler: handler.handler
+    handler: handler/handler.get
     events:
       - http:
           path: /debts/{id}
